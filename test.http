@@ -1,0 +1,9 @@
+
+
+###
+POST http://localhost:3000/create-job
+Content-Type: application/json
+
+{
+  "path": "C:/Users/dinhtiendat190196/Desktop/Recording 7_15_2024 at 7_31_07 AM.js"
+}
