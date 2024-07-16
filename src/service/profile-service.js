@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const {v1} = require('uuid');
 const {io} = require('../socket');
 const {listCurrentBrowser, setListCurrentBrowser} = require('./list-current-browser');
-const {createJob} = require('./utils');
+const {myQueue, setFunctionJob} = require("./bullmq-init");
 
 async function createProfile(path) {
     const uuid1 = v1();
@@ -38,15 +38,16 @@ async function stopProfile(id) {
     }
 }
 
-async function runJob(path) {
-    const functionJob = createJob(path);
-    if (functionJob) {
-        const browser = await puppeteer.launch({
-            headless: false,
-            defaultViewport: null
-        });
-        functionJob(browser, puppeteer);
-    }
+async function runJob(scriptPath, listProfilePaths) {
+    setFunctionJob(scriptPath);
+    await myQueue.addBulk(listProfilePaths.map(profilePath => {
+        return {
+            name: 'job',
+            data: {
+                path: profilePath
+            }
+        }
+    }))
 }
 
 module.exports = {createProfile, runProfile, stopProfile, runJob};

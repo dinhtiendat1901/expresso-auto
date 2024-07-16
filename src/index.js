@@ -15,7 +15,7 @@ app.get('/stop-profile/:id', async (req, res) => {
     res.send('Stop Profile Successfully!');
 });
 
-app.post('/create-job', async (req, res) => {
-    await runJob(req.body.path);
+app.post('/run-job', async (req, res) => {
+    await runJob(req.body.scriptPath, req.body.listProfilePaths);
     res.send('Run Job Successfully!');
 });
