@@ -5,10 +5,10 @@ POST http://localhost:3000/run-job
 Content-Type: application/json
 
 {
-  "scriptPath": "C:/Users/dinhtiendat190196/Desktop/Recording 7_15_2024 at 7_31_07 AM.js",
+  "scriptPath": "C:/Users/dinhtiendat190196/Desktop/Recording 7_3_2024 at 5_56_01 PM.js",
   "listProfilePaths": [
-    "C:/Users/dinhtiendat190196/Desktop/profile-data/72656530-4025-11ef-a94f-eb4a4d0c3af4",
-    "C:/Users/dinhtiendat190196/Desktop/profile-data/770ca620-4025-11ef-a94f-eb4a4d0c3af4",
-    "C:/Users/dinhtiendat190196/Desktop/profile-data/799ee9c0-4025-11ef-a94f-eb4a4d0c3af4"
+    "C:/Users/dinhtiendat190196/Desktop/profile-data/6f3886b0-427f-11ef-a972-5f5600a42ed1",
+    "C:/Users/dinhtiendat190196/Desktop/profile-data/5cc782a0-4348-11ef-a8d8-532cdbcfa3e0",
+    "C:/Users/dinhtiendat190196/Desktop/profile-data/14307430-434c-11ef-a8d8-532cdbcfa3e0"
   ]
 }
