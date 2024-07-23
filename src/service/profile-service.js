@@ -1,18 +1,9 @@
 const puppeteer = require('puppeteer-extra');
 puppeteer.use(require('puppeteer-extra-plugin-stealth')());
-const {v1} = require('uuid');
 const {io} = require('../socket');
 const {listCurrentBrowser, setListCurrentBrowser} = require('./list-current-browser');
 const {myQueue, setFunctionJob, clearQueue} = require("./bullmq-init");
 
-async function createProfile(path) {
-    const uuid1 = v1();
-    const browser = await puppeteer.launch({
-        userDataDir: `${path}/${uuid1}`
-    });
-    await browser.close();
-    return `${path}/${uuid1}`;
-}
 
 async function runProfile(id, path) {
     const browser = await puppeteer.launch({
@@ -52,4 +43,4 @@ async function runJob(scriptPath, listProfilePaths) {
     }))
 }
 
-module.exports = {createProfile, runProfile, stopProfile, runJob};
+module.exports = {runProfile, stopProfile, runJob};

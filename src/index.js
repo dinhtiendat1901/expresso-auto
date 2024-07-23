@@ -1,9 +1,5 @@
 const {app} = require('./socket');
-const {createProfile, runJob, runProfile, stopProfile} = require('./service/profile-service');
-
-app.post('/create-profile', async (req, res) => {
-    res.send(await createProfile(req.body.path));
-});
+const {runJob, runProfile, stopProfile} = require('./service/profile-service');
 
 app.get('/run-profile', async (req, res) => {
     await runProfile(req.query.id, req.query.path);
