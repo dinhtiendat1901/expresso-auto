@@ -1,4 +1,5 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-extra');
+puppeteer.use(require('puppeteer-extra-plugin-stealth')());
 const {v1} = require('uuid');
 const {io} = require('../socket');
 const {listCurrentBrowser, setListCurrentBrowser} = require('./list-current-browser');
